@@ -18,6 +18,9 @@ int main() {
 
 	Silownia Bieznia("Fitness Magna Pro", "Italy");
 
+	Silownia klient1("Ola",24);
+	Silownia klient2 = klient1; //konstruktor kopiuj¹cy
+
 	Silownia* nowyKlient = new Silownia;
 	nowyKlient->Wypisz("Markus", 22);
 	delete nowyKlient;

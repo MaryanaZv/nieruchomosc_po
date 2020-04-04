@@ -16,6 +16,7 @@ public:
 	Silownia();
 	~Silownia();
 	Silownia(string model, string producent);
+	Silownia(string k_imie, int k_wiek);
 	Silownia(const Silownia& klient);
 	static int getLiczba_klientow();
 	void Wypisz(string nazwa);
