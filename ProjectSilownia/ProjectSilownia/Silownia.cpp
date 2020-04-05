@@ -98,3 +98,8 @@ Silownia& operator+=(Silownia& lewy, const Silownia& prawy) {
 	lewy.wiek += prawy.wiek;
 	return lewy;
 }
+
+Silownia::operator int() const{
+	cout << "\nOperator konwersji" << endl;
+	return wiek;
+}

@@ -27,5 +27,5 @@ public:
 	Silownia operator+(int liczba);
 	void Wypisz();
 	friend Silownia& operator+=(Silownia& left, const Silownia& right);
-	
+	operator int() const;
 };
