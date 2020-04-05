@@ -18,7 +18,14 @@ public:
 	Silownia(string model, string producent);
 	Silownia(string k_imie, int k_wiek);
 	Silownia(const Silownia& klient);
-	static int getLiczba_klientow();
+	static int Liczba_Klientow();
 	void Wypisz(string nazwa);
 	void Wypisz(string imie, int wiek);
+	Silownia& operator=(const Silownia& prawy);
+	friend ostream& operator<<(ostream&, const Silownia&);
+	Silownia(int wiek);
+	Silownia operator+(int liczba);
+	void Wypisz();
+	friend Silownia& operator+=(Silownia& left, const Silownia& right);
+	
 };

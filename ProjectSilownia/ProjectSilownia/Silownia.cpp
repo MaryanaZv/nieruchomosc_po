@@ -20,7 +20,7 @@ Silownia::~Silownia() {
 	liczba_klientow--;
 }
 
-int Silownia::getLiczba_klientow() {
+int Silownia::Liczba_Klientow() {
 	return liczba_klientow;
 }
 
@@ -58,4 +58,43 @@ Silownia::Silownia(const Silownia& klient) {
 
 void Silownia::Wypisz(string imie, int wiek) {
 	cout << "Klient:" << "\nImie: " << imie << "\nWiek: " << wiek << endl;
+}
+
+Silownia& Silownia::operator=(const Silownia& prawy) {
+	if (&prawy != this) {
+		imie = prawy.imie;
+		wiek = prawy.wiek;
+		cout << "\nOperator przypisania" << endl;
+		cout << "Imie: " << imie << "\nWiek: " << wiek << endl;
+	}
+	return *this;
+}
+
+ostream& operator<<(ostream& wyjscie, const Silownia& k) {
+	cout << "\nOperator wypisywania" << endl;
+	wyjscie << "Imie: " << k.imie << "\nWiek: " << k.wiek << endl;
+	return wyjscie;
+}
+
+Silownia::Silownia(int wiek) {
+#ifdef _DEBUG
+	this->wiek = wiek;
+	cout << "\nSilownia(int wiek)" << endl;
+#endif
+}
+
+Silownia Silownia::operator+(int liczba)
+{
+	cout << "\nOperator jednoargumentowy" << endl;
+	return Silownia(wiek + liczba);	
+}
+
+void Silownia::Wypisz() {
+	cout << "Wiek po dzialaniu operatora: " << wiek << endl;
+}
+
+Silownia& operator+=(Silownia& lewy, const Silownia& prawy) {
+	cout << "\nOperator dwuargumentowy" << endl;
+	lewy.wiek += prawy.wiek;
+	return lewy;
 }

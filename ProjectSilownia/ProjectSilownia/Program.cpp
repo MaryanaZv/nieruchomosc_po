@@ -5,25 +5,33 @@
 using namespace std;
 
 int main() {
-	cout << Silownia::getLiczba_klientow() << endl;
+	cout << Silownia::Liczba_Klientow() << endl;
 	Silownia Klient1;
-	cout << Silownia::getLiczba_klientow() << " - ilosc klientow obecnych" << endl;
+	cout << Silownia::Liczba_Klientow() << " - ilosc klientow obecnych" << endl;
 	Silownia* Klient2 = new Silownia;
-	cout << Silownia::getLiczba_klientow() << " - ilosc klientow obecnych" << endl;
+	cout << Silownia::Liczba_Klientow() << " - ilosc klientow obecnych" << endl;
 	delete Klient2;
-	cout << Silownia::getLiczba_klientow() << " - ilosc klientow obecnych" << endl;
+	cout << Silownia::Liczba_Klientow() << " - ilosc klientow obecnych" << endl;
 
 	Silownia silownia;
 	silownia.Wypisz("ProFit");
 
-	Silownia Bieznia("Fitness Magna Pro", "Italy");
+	Silownia Bieznia("Fitness Magna Pro", "Italy"); //podobiekt automatyczny
 
-	Silownia klient1("Ola",24);
-	Silownia klient2 = klient1; //konstruktor kopiuj¹cy
+	Silownia* Klient = new Silownia; //podobiekt dynamiczny
+	Klient->Wypisz("Markus", 22);
+	delete Klient;
 
-	Silownia* nowyKlient = new Silownia;
-	nowyKlient->Wypisz("Markus", 22);
-	delete nowyKlient;
+	Silownia klient1("Ola", 25);
+	Silownia klient2 = klient1; //konstruktor kopiujacy
+	Silownia klient3("Kasia", 31);
+	klient1 = klient3; //operator przypisania
+	cout << klient1; //operator wypisywania
+	Silownia klient4(20);
+	Silownia klient5 = klient4.operator+(24); //operator jednoargumentowy
+	klient5.Wypisz();
+	klient4 += klient5; //operator dwuargumentowy
+	klient4.Wypisz();
 
 	return 0;
 }
