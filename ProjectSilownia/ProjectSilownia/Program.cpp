@@ -1,5 +1,7 @@
 #include <iostream>
 #include "Silownia.h"
+#include "Bieznia.h"
+#include "Klienci.h"
 
 using namespace std;
 
@@ -17,29 +19,29 @@ int main() {
 	Silownia silownia;
 	silownia.Wypisz("ProFit");
 
-	Silownia Bieznia("Fitness Magna Pro", "Italy"); //podobiekt automatyczny
+	Bieznia Bieznia("Fitness Magna Pro", "Italy"); //podobiekt automatyczny
 
-	Silownia* Klient = new Silownia; //podobiekt dynamiczny
+	Klienci* Klient = new Klienci; //podobiekt dynamiczny
 	Klient->Wypisz("Markus", 22);
 	delete Klient;
 
-	Silownia klient1("Ola", 25);
-	Silownia klient2 = klient1; //konstruktor kopiujacy
+	Klienci klient1("Ola", 25);
+	Klienci klient2 = klient1; //konstruktor kopiujacy
 
-	Silownia klient3("Kasia", 31);
+	Klienci klient3("Kasia", 31);
 	klient1 = klient3; //operator przypisania
 	cout << klient1; //operator wypisywania
 
-	Silownia klient4(20);
-	Silownia klient5 = klient4.operator+(24); //operator jednoargumentowy
+	Klienci klient4(20);
+	Klienci klient5 = klient4.operator+(24); //operator jednoargumentowy
 	klient5.Wypisz();
 
-	Silownia klient6(20);
+	Klienci klient6(20);
 	klient6 += klient5; //operator dwuargumentowy
 	klient6.Wypisz();
 
 	zmienna_globalna = klient4; //operator konwersji
 	cout << "Wartosc zmiennej po dzialaniu operatora: " << zmienna_globalna << endl;
-
+	
 	return 0;
 }
