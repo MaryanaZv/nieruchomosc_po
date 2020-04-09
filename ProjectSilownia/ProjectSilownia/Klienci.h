@@ -5,9 +5,10 @@
 using namespace std;
 
 class Klienci{
-public:
+private:
 	string imie;
 	int wiek;
+public:
 	Klienci();
 	~Klienci();
 	Klienci(string k_imie, int k_wiek);

@@ -5,9 +5,10 @@
 using namespace std;
 
 class Bieznia{
-public:
+private:
 	string model;
 	string producent;
+public:
 	Bieznia();
 	Bieznia(string model, string producent);
 	~Bieznia();
