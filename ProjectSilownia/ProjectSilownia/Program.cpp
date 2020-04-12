@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Silownia.h"
-#include "Bieznia.h"
+#include "Wlasciciel.h"
 #include "Klienci.h"
 
 using namespace std;
@@ -8,39 +8,44 @@ using namespace std;
 int zmienna_globalna; 
 
 int main() {
-	cout << Silownia::Liczba_Klientow() << endl;
-	Silownia Klient1;
-	cout << Silownia::Liczba_Klientow() << " - ilosc klientow obecnych" << endl;
-	Silownia* Klient2 = new Silownia;
-	cout << Silownia::Liczba_Klientow() << " - ilosc klientow obecnych" << endl;
-	delete Klient2;
-	cout << Silownia::Liczba_Klientow() << " - ilosc klientow obecnych" << endl;
+	cout << Silownia::Liczba_Silowien() << endl;
+	Silownia s1;
+	cout << Silownia::Liczba_Silowien() << endl;
+	Silownia* s2 = new Silownia;
+	cout << Silownia::Liczba_Silowien() << endl;
+	delete s2;
+	cout << Silownia::Liczba_Silowien() << endl;
 
-	Silownia silownia;
-	silownia.Wypisz("ProFit");
+	Silownia silownia("ProFit");
+	cout << silownia; //operator wypisywania
 
-	Bieznia Bieznia("Fitness Magna Pro", "Italy"); //podobiekt automatyczny
+	Silownia wlasciciel; 
+	wlasciciel.Dane_Wlasciciel(); //podobiekt automatyczny
 
-	Klienci* Klient = new Klienci; //podobiekt dynamiczny
-	Klient->Wypisz("Markus", 22);
-	delete Klient;
+	Silownia* pa;
+	pa = new Silownia(1); //podobiekt dynamiczny
+	pa->wypisz_dane();
+	delete pa;
 
-	Klienci klient1("Ola", 25);
-	Klienci klient2 = klient1; //konstruktor kopiujacy
+	Silownia silownia1("Fitness", 25);
+	Silownia silownia2 = silownia1; //konstruktor kopiujacy
 
-	Klienci klient3("Kasia", 31);
-	klient1 = klient3; //operator przypisania
-	cout << klient1; //operator wypisywania
+	Silownia silownia3("FitPro", 31);
+	silownia1 = silownia3; //operator przypisania
 
-	Klienci klient4(20);
-	Klienci klient5 = klient4.operator+(24); //operator jednoargumentowy
-	klient5.Wypisz();
+	Silownia silownia4(3000.5f);
+	Silownia silownia5 = silownia4.operator+(200); //operator jednoargumentowy
+	silownia5.Wypisz();
 
-	Klienci klient6(20);
-	klient6 += klient5; //operator dwuargumentowy
-	klient6.Wypisz();
+	Silownia silownia6(2000.5f);
+	silownia6 += silownia5; //operator dwuargumentowy
+	silownia6.Wypisz();
 
-	zmienna_globalna = klient4; //operator konwersji
+	Silownia silownia7(1);
+	Klienci klient = silownia7[1]; //operator indeksowania
+	silownia7[1].SetDane("Marek", 23);
+
+	zmienna_globalna = silownia4; //operator konwersji
 	cout << "Wartosc zmiennej po dzialaniu operatora: " << zmienna_globalna << endl;
 	
 	return 0;
