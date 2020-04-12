@@ -22,10 +22,10 @@ int main() {
 	Silownia wlasciciel; 
 	wlasciciel.Dane_Wlasciciel(); //podobiekt automatyczny
 
-	Silownia* pa;
-	pa = new Silownia(1); //podobiekt dynamiczny
-	pa->wypisz_dane();
-	delete pa;
+	Silownia* klient1;
+	klient1 = new Silownia(1); //podobiekt dynamiczny
+	klient1->wypisz_dane();
+	delete klient1;
 
 	Silownia silownia1("Fitness", 25);
 	Silownia silownia2 = silownia1; //konstruktor kopiujacy

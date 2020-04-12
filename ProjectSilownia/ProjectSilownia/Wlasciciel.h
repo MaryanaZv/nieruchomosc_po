@@ -12,4 +12,4 @@ public:
 	Wlasciciel();
 	~Wlasciciel();
 	void SetName(string n_imie, string n_nazwisko);
-}; 
+};  

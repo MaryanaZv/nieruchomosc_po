@@ -6,7 +6,7 @@ using namespace std;
 
 Wlasciciel::Wlasciciel() {
 #ifdef _DEBUG
-	cout << "\nWlasciciel()" << endl;
+	cout << "\nWlasciciel()" << endl; 
 #endif
 }
 

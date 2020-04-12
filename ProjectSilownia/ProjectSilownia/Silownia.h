@@ -13,7 +13,7 @@ private:
 	string nazwa;
 	Wlasciciel wlasciciel;
 	float liczba_test;
-	Klienci* klients;
+	Klienci* klients; 
 public:
 	Silownia();
 	~Silownia();

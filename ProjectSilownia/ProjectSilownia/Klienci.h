@@ -12,4 +12,4 @@ public:
 	Klienci();
 	~Klienci();
 	void SetDane(string new_imie, int new_wiek);
-};
+}; 

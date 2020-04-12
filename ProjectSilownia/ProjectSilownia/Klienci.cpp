@@ -14,7 +14,7 @@ Klienci::~Klienci() {
 #ifdef _DEBUG
 	cout << "\n~Klienci()" << endl;
 #endif
-}
+} 
 
 void Klienci::SetDane(string new_imie, int new_wiek) {
 	this->imie = new_imie;

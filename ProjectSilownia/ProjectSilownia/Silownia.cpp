@@ -89,7 +89,7 @@ void Silownia::Wypisz() {
 	cout << "Liczba testujaca po dzialaniu operatora: " << liczba_test << endl;
 }
 
-Silownia::Silownia(float liczba_test) {
+Silownia::Silownia(float liczba_test)  {
 	this->liczba_test = liczba_test;
 #ifdef _DEBUG
 	cout << "\nSilownia(float liczba_test)" << endl;
