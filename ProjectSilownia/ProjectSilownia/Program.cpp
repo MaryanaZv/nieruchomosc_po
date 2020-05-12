@@ -9,8 +9,9 @@
 
 using namespace std;
 
-Silownia zmienna_globalna; 
+Silownia zmienna_globalna; ///<zmienna globalna z proektu 1
 
+///metoda wypusuje menu polecen na ekran 
 void print_menu() {
 	system("cls"); 
 	cout << "Co trzeba zrobic?" << endl;
@@ -35,34 +36,54 @@ void print_menu() {
 }
 
 int main() {
-
+	///wektor wskaznikow na obiekty klas
+	/**ten wektor jest potrzebny do zademonstrowania wlasciwosci polimorfizmu*/
 	vector<Nieruchomosc*> nieruchomosc;
 
-	Budynek b;
+	///obiekt klasy 
+	Budynek b; 
+	///obiekt klasy 
 	Silownia s;
+	///obiekt klasy 
 	Dzialka d;
 
-	Budynek budynek(3000, "Adres budynku");
-	Silownia silownia(2000, "Adres silowni", 2);
-	Dzialka dzialka(4000, "Adres dzialki");
+	///obiekt klasy z parametrami 
+	Budynek budynek(3000, "Jakis adres budynku");
+	///obiekt klasy z parametrami 
+	Silownia silownia(2000, "Jakis adres silowni", 2);
+	///obiekt klasy z parametrami 
+	Dzialka dzialka(4000, "Jakis adres dzialki");
 
+	///obiekt klasy z parametrami 
 	Budynek budynek1(3);
+	///obiekt klasy z parametrami 
 	Silownia silownia1(150);
+	///obiekt klasy z parametrami 
 	Dzialka dzialka1(222);
 
+	///obiekt klasy
 	fstream plik;
+
+	///otwieranie pliku do zapisu/odczytu
 	plik.open("/Users/Maryana/OneDrive/dok.txt", ios_base::out | ios_base::app);
 
-	int variant;
+	int variant; ///<zmienna ktora podajemy do switch
 
+	///metoda uruchomienia menu
 	do {
-		print_menu();
+		///wypisuje menu na ekran
+		print_menu(); 
 
-		cin >> variant;
+		///trzeba wprowadzic numer polecenia
+		cin >> variant; 
 
+		///metoda pozwala na wykonanie polecen za numerem
 		switch (variant) {
-		case 1:
 
+			///jesli variant rowny 1 to zrob to
+			/**dodaje wszystkie obiekty do vector i dla kazdego wywoluje metode Wypisanie 
+			\param referencje na obiekt*/
+		case 1:
 			nieruchomosc.push_back(&b);
 			nieruchomosc.push_back(&s);
 			nieruchomosc.push_back(&d);
@@ -72,17 +93,22 @@ int main() {
 			}
 			break;
 
+			///jesli variant rowny 2 to wywolaj metode 
 		case 2:
 			budynek.WypisujePola();
 			break;
 
+			///jesli variant rowny 3 to wywolaj metode 
 		case 3:
 			dzialka.WypisujePola();
 			break;
 
+			///jesli variant rowny 4 to wywolaj metode 
 		case 4:
 			silownia.WypisujePola();
 			break;
+
+			///jesli variant rowny 5 zapisz obiekt budynek1 do pliku
 		case 5:
 			
 			if (!plik.is_open()) {
@@ -97,6 +123,8 @@ int main() {
 			plik.close();
 
 			break;
+
+			///jesli variant rowny 6 zapisz obiekt dzialka1 do pliku
 		case 6:
 
 			if (!plik.is_open()) {
@@ -111,6 +139,8 @@ int main() {
 			plik.close(); 
 
 			break;
+
+			///jesli variant rowny 7 zapisz obiekt silownia1 do pliku
 		case 7:
 
 			if (!plik.is_open()) {
@@ -125,15 +155,22 @@ int main() {
 			plik.close();
 
 			break;
+
+			///jesli variant rowny 8 to break
 		case 8:
 			break;
+
+			///jesli variant nie jest rowny 1-8 to wypisz to
 		default:
 			cout << "Wprowadzony numer jest zly, nie ma takiego polecenia." << endl;
 		}
 
+		///jesli variant jest nie rowny 8 to zatrzymaj wszystko na ekranie
 		if (variant != 8)
 			system("pause");
-	} while (variant != 8);
+	} ///dopoki variant nie bedzie rowny 8
+	while (variant != 8);
 
+	/**\return zwraca zero*/
 	return 0;
 }
