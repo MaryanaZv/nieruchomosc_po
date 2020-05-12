@@ -1,13 +1,9 @@
 #include <iostream>
 #include "Budynek.h"
 
-Budynek::Budynek() {
+Budynek::Budynek() {}
 
-}
-
-Budynek::~Budynek() {
-
-}
+Budynek::~Budynek() {}
 
 void Budynek::Wypisanie() {
 	cout << "Budynek :: Wypisanie (metoda wirtualna) " << endl;

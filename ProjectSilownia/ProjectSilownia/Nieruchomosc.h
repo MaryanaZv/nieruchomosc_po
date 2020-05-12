@@ -12,5 +12,5 @@ public:
 	virtual void Wypisanie() = 0;
 	virtual ostream& operator<<(ostream& wyjscie) const;
 	virtual istream& operator>>(istream& wejscie);
-	virtual void WypisujePola() = 0;
+	virtual void WypisujePola() = 0; 
 };

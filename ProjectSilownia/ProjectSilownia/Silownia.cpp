@@ -138,43 +138,4 @@ void Silownia::WypisujePola() {
 	cout << "Podatek silowni wynosi: " << podatek << endl;
 	cout << "Adres silowni: " << adres << endl;
 	cout << "Ilosc pieter silowni: " << ilosc_pieter << endl;
-}
-
-/*
-bool Silownia::zapiszPlik(string nazwaPliku) {
-	fstream plik;
-	plik.open(nazwaPliku.c_str(), ios_base::out | ios_base::app);
-	if (!plik.is_open()) {
-		cout << "Blad otwarcia pliku! " << endl;
-		return false;
-	}
-
-	else {
-		cout << "Plik jest otwarty! " << endl;
-		Silownia silownia("ProFit");
-		plik << silownia << endl;
-	}
-	return true;
-	plik.close();
-}
-
-bool Silownia::wczytajPlik(string nazwaPliku) {
-	fstream plik;
-	plik.open(nazwaPliku.c_str(), ios_base::in);
-	if (!plik.is_open()) {
-		cout << "Blad otwarcia pliku! " << endl;
-		return false;
-	}
-		
-	while (true) {
-		Silownia sil;
-		plik >> sil;
-		if (!plik.fail())
-			cout << sil << endl;
-		else
-			if (plik.eof())
-			break; 
-	}
-	return true;
-	plik.close();
-}*/
+} 

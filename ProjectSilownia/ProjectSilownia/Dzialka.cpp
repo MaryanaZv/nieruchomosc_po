@@ -2,13 +2,9 @@
 #include "Nieruchomosc.h"
 #include "Dzialka.h"
 
-Dzialka::Dzialka() {
+Dzialka::Dzialka() {}
 
-}
-
-Dzialka::~Dzialka() {
-
-}
+Dzialka::~Dzialka() {}
 
 void Dzialka::Wypisanie() {
 	cout << "Dzialka :: Wypisanie (metoda wirtualna) " << endl;
@@ -40,4 +36,4 @@ istream& operator>>(istream& wejscie, Dzialka& d) {
 	cout << "\nDzialka :: Operator >>" << endl;
 	wejscie >> d.rozmiar;
 	return wejscie;
-}
+} 

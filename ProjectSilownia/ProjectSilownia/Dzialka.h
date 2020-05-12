@@ -16,4 +16,4 @@ public:
 	Dzialka(int rozmiar);
 	friend ostream& operator<<(ostream& wyjscie, const Dzialka& d);
 	friend istream& operator>>(istream& wejscie, Dzialka &d);
-};
+}; 

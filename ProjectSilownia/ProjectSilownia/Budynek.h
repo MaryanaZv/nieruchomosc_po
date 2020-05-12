@@ -16,4 +16,4 @@ public:
 	Budynek(int ilosc_pieter);
 	friend ostream& operator<<(ostream& wyjscie, const Budynek& b);
 	friend istream& operator>>(istream& wejscie, Budynek& b);
-};
+}; 

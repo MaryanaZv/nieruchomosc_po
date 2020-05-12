@@ -7,12 +7,12 @@
 #include "Dzialka.h"
 #include "Budynek.h"
 
-using namespace std;
+using namespace std; 
 
 Silownia zmienna_globalna; 
 
 void print_menu() {
-	system("cls"); // очищаем экран
+	system("cls"); 
 	cout << "Co trzeba zrobic?" << endl;
 	cout << " " << endl;
 	cout << "1. Prodemonstrowac wlasciwosci polimirfizmu." << endl;
@@ -132,9 +132,8 @@ int main() {
 		}
 
 		if (variant != 8)
-			system("pause"); // задерживаем выполнение, чтобы пользователь мог увидеть результат выполнения выбранного пункта
+			system("pause");
 	} while (variant != 8);
-
 
 	return 0;
 }
