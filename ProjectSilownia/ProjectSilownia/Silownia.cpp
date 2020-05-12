@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 #include "Silownia.h"
 
 using namespace std;
@@ -44,45 +45,39 @@ Silownia::Silownia(string nazwa) {
 }
 
 Silownia::Silownia(const Silownia& silownia) {
-	nazwa = silownia.nazwa;
-	liczba_klientow = silownia.liczba_klientow;
+	this->nazwa = silownia.nazwa;
 #ifdef _DEBUG
 	cout << "\nSilownia(const Silownia& silownia)" << endl;
-	cout << "Silownia:" << "\nNazwa: " << nazwa << "\nLiczba klientow: " << liczba_klientow << endl;
+	cout << "Silownia:" << "\nNazwa: " << nazwa << endl;
 #endif
 }
 
-ostream& operator<<(ostream& wyjscie, const Silownia& k) {
-	cout << "\nOperator wypisywania" << endl;
-	wyjscie << "Nazwa: " << k.nazwa << endl;
-	return wyjscie;
-}
-
-Silownia& Silownia::operator=(const Silownia& prawy) {
-	if (&prawy != this) {
-		nazwa = prawy.nazwa;
-		liczba_klientow = prawy.liczba_klientow;
+Silownia& Silownia::operator=(const Silownia& s) {
+	if (&s != this) {
+		nazwa = s.nazwa;
+		liczba_klientow = s.liczba_klientow;
 		cout << "\nOperator przypisania" << endl;
 		cout << "Nazwa: " << nazwa << "\nLiczba klientow: " << liczba_klientow << endl;
 	}
 	return *this;
 }
 
-Silownia& operator+=(Silownia& lewy, const Silownia& prawy) {
+Silownia& Silownia::operator+=(const Silownia& sil) {
 	cout << "\nOperator dwuargumentowy" << endl;
-	lewy.liczba_test += prawy.liczba_test;
-	return lewy;
+	liczba_test += sil.liczba_test;
+	return *this;
 }
 
-Silownia::operator int() const {
+Silownia::operator int() const{
 	cout << "\nOperator konwersji" << endl;
-	return liczba_test;
+	return this->liczba_test;
 }
 
-Silownia Silownia::operator+(int liczba)
+Silownia& Silownia::operator++()
 {
 	cout << "\nOperator jednoargumentowy" << endl;
-	return Silownia(liczba_test + liczba);
+	liczba_test++;
+	return *this;
 }
 
 void Silownia::Wypisz() {
@@ -96,21 +91,90 @@ Silownia::Silownia(float liczba_test)  {
 #endif
 }
 
-Silownia::Silownia(int liczba_klientow) {
-	if (liczba_klientow > 0)
-		this->klients = new Klienci[liczba_klientow];
-	else
-		this->klients = 0;
-#ifdef _DEBUG
-	cout << "\nSilownia(int liczba_klientow)" << endl;
-#endif
+Silownia::Silownia (vector<Klienci> klients) {
+	klients.push_back(Klienci());
 }
-
+		
 void Silownia::wypisz_dane() {
-	this->klients->SetDane("Ola", 22);
+	for (size_t i = 0; i < klients.size(); ++i)
+		klients[i].SetDane("Ola", 22);
 }
 
 Klienci Silownia::operator[](int i) {
 	cout << "\nOperator indeksowania" << endl;
 	return klients[i];
 }
+
+
+void Silownia::Wypisanie() {
+	cout << "Silownia :: Wypisanie (metoda wirtualna) " << endl;
+} 
+
+ostream& operator<<(ostream& wyjscie, const Silownia& k) {
+	&Budynek::operator<<;
+	cout << "\nSilownia :: Operator << " << endl;
+	wyjscie << k.klienci << endl;
+	return wyjscie;
+}
+
+istream& operator>>(istream& wejscie, Silownia& k) {
+	&Budynek::operator>>;
+	cout << "\nSilownia :: Operator >>" << endl;
+	wejscie >> k.klienci;
+	return wejscie;
+}
+
+Silownia::Silownia(int podatek, string adres, int ilosc_pieter) {
+	this->podatek = podatek;
+	this->adres = adres;
+	this->ilosc_pieter = ilosc_pieter;
+}
+
+Silownia::Silownia(int klienci) {
+	this->klienci = klienci;
+}
+
+void Silownia::WypisujePola() {
+	cout << "Podatek silowni wynosi: " << podatek << endl;
+	cout << "Adres silowni: " << adres << endl;
+	cout << "Ilosc pieter silowni: " << ilosc_pieter << endl;
+}
+
+/*
+bool Silownia::zapiszPlik(string nazwaPliku) {
+	fstream plik;
+	plik.open(nazwaPliku.c_str(), ios_base::out | ios_base::app);
+	if (!plik.is_open()) {
+		cout << "Blad otwarcia pliku! " << endl;
+		return false;
+	}
+
+	else {
+		cout << "Plik jest otwarty! " << endl;
+		Silownia silownia("ProFit");
+		plik << silownia << endl;
+	}
+	return true;
+	plik.close();
+}
+
+bool Silownia::wczytajPlik(string nazwaPliku) {
+	fstream plik;
+	plik.open(nazwaPliku.c_str(), ios_base::in);
+	if (!plik.is_open()) {
+		cout << "Blad otwarcia pliku! " << endl;
+		return false;
+	}
+		
+	while (true) {
+		Silownia sil;
+		plik >> sil;
+		if (!plik.fail())
+			cout << sil << endl;
+		else
+			if (plik.eof())
+			break; 
+	}
+	return true;
+	plik.close();
+}*/
