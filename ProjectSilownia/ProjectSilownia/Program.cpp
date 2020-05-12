@@ -7,7 +7,7 @@
 #include "Dzialka.h"
 #include "Budynek.h"
 
-using namespace std; 
+using namespace std;
 
 Silownia zmienna_globalna; 
 

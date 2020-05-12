@@ -43,4 +43,4 @@ public:
 	Silownia(int podatek, string adres, int ilosc_pieter);
 	Silownia(int klienci);
 	void WypisujePola() override;
-}; 
+};

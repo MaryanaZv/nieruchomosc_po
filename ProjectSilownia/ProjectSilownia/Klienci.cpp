@@ -34,3 +34,4 @@ void Klienci::SetDane(string new_imie, int new_wiek) {
 	this->wiek = new_wiek;
 	cout << "\nDane: " << "\nImie: " << new_imie << "\nWiek: " << new_wiek << endl;
 }
+

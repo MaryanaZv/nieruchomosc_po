@@ -17,3 +17,4 @@ public:
 	Klienci(string imie, int wiek);
 	void SetDane(string new_imie, int new_wiek);
 };
+

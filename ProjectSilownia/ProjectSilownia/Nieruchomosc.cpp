@@ -9,4 +9,4 @@ ostream& Nieruchomosc::operator<<(ostream& wyjscie) const{
 
 istream& Nieruchomosc::operator>>(istream& wejscie) {
 	return wejscie;
-} 
+}

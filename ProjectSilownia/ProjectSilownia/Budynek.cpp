@@ -35,4 +35,4 @@ istream& operator>>(istream& wejscie, Budynek& b) {
 	cout << "\nSilownia :: Operator >>" << endl;
 	wejscie >> b.ilosc_pieter;
 	return wejscie;
-}
+}  

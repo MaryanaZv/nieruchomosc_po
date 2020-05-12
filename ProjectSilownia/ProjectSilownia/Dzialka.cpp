@@ -36,4 +36,4 @@ istream& operator>>(istream& wejscie, Dzialka& d) {
 	cout << "\nDzialka :: Operator >>" << endl;
 	wejscie >> d.rozmiar;
 	return wejscie;
-} 
+}

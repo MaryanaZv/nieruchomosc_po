@@ -138,4 +138,4 @@ void Silownia::WypisujePola() {
 	cout << "Podatek silowni wynosi: " << podatek << endl;
 	cout << "Adres silowni: " << adres << endl;
 	cout << "Ilosc pieter silowni: " << ilosc_pieter << endl;
-} 
+}
